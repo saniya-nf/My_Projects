@@ -1,3 +1,4 @@
+
 module fifo_mem #(parameter DATA_WIDTH=8,ADDR_WIDTH=3)(
 output [DATA_WIDTH-1:0]rdata,
 input wclk,we,
@@ -17,6 +18,6 @@ always@(posedge wclk)
   
   //read operation - async coz if we use clk here then fifo wont be fast anymore it will depend on the rising edge of clk.
   assign rdata = mem[raddr];
-endmodule
+endmodule//1) fifo_mem
 
 
