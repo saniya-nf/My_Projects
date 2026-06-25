@@ -1,0 +1,17 @@
+# Simulator files
+work/
+*.wlf
+*.vcd
+*.log
+*.vstf
+.eda_history
+transcript
+vsim.wlf
+
+# Compile artifacts
+*.o
+*.out
+
+# OS files
+.DS_Store
+Thumbs.db
