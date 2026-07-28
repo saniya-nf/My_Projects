@@ -10,7 +10,7 @@ module FIFO(
     reg [7:0]fifo_mem[63:0];
 
     always @(posedge clk or posedge rst)begin
-        //y did we take posed rst too?
+         
         if(rst)
             fifo_counter<=0;
         else if (!fifo_full && wr_en && !fifo_empty && rd_en)
@@ -63,3 +63,4 @@ module FIFO(
         end 
     end
 endmodule
+
