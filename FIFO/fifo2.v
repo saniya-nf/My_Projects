@@ -10,8 +10,7 @@ reg [7:0] fifo_mem [63:0];
 
 // Full and Empty flags
 assign fifo_empty = (wr_ptr == rd_ptr);
-assign fifo_full  = (wr_ptr[5:0] == rd_ptr[5:0]) 
-                 && (wr_ptr[6]   != rd_ptr[6]);
+assign fifo_full  = (wr_ptr[5:0] == rd_ptr[5:0]) && (wr_ptr[6]  != rd_ptr[6]);
 
 // Write logic
 always@(posedge clk)
