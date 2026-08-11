@@ -1,7 +1,7 @@
 module wptr_full(
     output reg [6:0]wptr_bin,
     output reg wfull,
-    output reg [5:0]wptr_addr,
+    output [5:0]wptr_addr,
     output reg [6:0]wptr_gray,
     input wclk,wrst_n,w_en,
     input [6:0]rq2_wptr
