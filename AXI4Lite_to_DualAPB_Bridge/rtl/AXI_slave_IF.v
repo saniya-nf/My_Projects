@@ -68,7 +68,7 @@ module axi_slave(
             BVALID<=1;
         end
         else if(BVALID && BREADY)
-            BVALID<=0;//handshaking is done
+            BVALID<=0;//handshaking is done!
 
         if(ARVALID && !fifo_full)
             ARREADY<=1;
