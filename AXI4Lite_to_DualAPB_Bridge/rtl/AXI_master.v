@@ -28,7 +28,7 @@ input [1:0] RRESP
 always@(posedge clk,posedge rst)
     if(rst)begin
         //write channel
-        AWADDR<=0;//ALL output reg signals → reset to 0!
+        AWADDR<=0;//ALL output reg signals → reset to 0
         AWVALID<=0;
         WDATA<=0;
         WVALID<=0;
