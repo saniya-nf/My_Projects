@@ -1,11 +1,11 @@
+//we are using sync fifo coz axi and apb are in the same sys,using same clk for simplicity
 module fifo(
     input clk,rst,wen,
     input [64:0]fifo_wdata,
     output fifo_empty,fifo_full,
     output reg [64:0] RDATA//when wen this ort will be an i/p for fsm bridge , when wen =0 this port will give i/p to axi slave
 );
-//we are using sync fifo coz axi and apb are in the same sys,using same clk for simplicity
-    
+
     reg [64:0]fifo_mem;
     reg [1:0]wr_ptr,rd_ptr;//1 MSB+ 1 location depth fifo
     /*bit[0] = address (0 only for depth=1!)
