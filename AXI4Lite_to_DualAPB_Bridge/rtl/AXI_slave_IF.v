@@ -28,7 +28,7 @@ module axi_slave(
     //TO FIFO
     output fifo_wen, //wire coz assign
     output [64:0]fifo_wdata,//wire
-    input fifo_full
+    input fifo_full//written in fifo module
 );
 
     wire fifo_wen;
