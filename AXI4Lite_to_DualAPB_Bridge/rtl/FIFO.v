@@ -3,7 +3,7 @@ module fifo(
     input clk,rst,wen,
     input [64:0]fifo_wdata,
     output fifo_empty,fifo_full,
-    output reg [64:0] RDATA//when wen this ort will be an i/p for fsm bridge , when wen =0 this port will give i/p to axi slave
+    output reg [64:0] RDATA//when wen this part will be an i/p for fsm bridge , when wen =0 this port will give i/p to axi slave
 );
 
     reg [64:0]fifo_mem;
