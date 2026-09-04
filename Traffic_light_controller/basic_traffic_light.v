@@ -63,4 +63,50 @@ always@(posedge clk,negedge rst)
     endmodule
 
     ///////////////////////////////////////////////////////////////////
-    
+    module traffic_light_3blk(
+    input clk, rst,
+    output reg red, yellow, green
+);
+
+parameter RED    = 2'b00,
+          GREEN  = 2'b01,
+          YELLOW = 2'b10;
+
+reg [1:0] state, next_state;
+reg [5:0] count;
+
+// Block 1 — state register
+always@(posedge clk or posedge rst)
+    if(rst) begin
+        state <= RED;
+        count <= 0;
+    end
+    else begin
+        state <= next_state;
+        if(next_state != state)
+            count <= 0;  // reset when state changes!
+        else
+            count <= count + 1;
+    end
+
+// Block 2 — next state logic
+always@(*) begin
+    next_state = state;
+    case(state)
+        RED:    if(count == 20) next_state = GREEN;
+        GREEN:  if(count == 15) next_state = YELLOW;
+        YELLOW: if(count == 5)  next_state = RED;
+        default: next_state = RED;
+    endcase
+end
+
+// Block 3 — output logic
+always@(*)
+    case(state)
+        RED:    {red,yellow,green} = 3'b100;
+        GREEN:  {red,yellow,green} = 3'b001;
+        YELLOW: {red,yellow,green} = 3'b010;
+        default:{red,yellow,green} = 3'b100;
+    endcase
+
+endmodule
